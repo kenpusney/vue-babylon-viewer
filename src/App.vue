@@ -1,17 +1,22 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div ref="rendered"></div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import { load } from "./utils/viewer"
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+  },
+
+  async mounted() {
+    const rendered = this.$refs.rendered;
+    console.log(rendered)
+    load(0, {}, rendered)
   }
 }
 </script>
